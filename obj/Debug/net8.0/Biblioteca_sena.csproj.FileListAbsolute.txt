@@ -1,0 +1,14 @@
+/home/riwip5-018/Documents/1.DSC#/proyecto_biblio_sena/biblioteca_Sena/bin/Debug/net8.0/Biblioteca_sena
+/home/riwip5-018/Documents/1.DSC#/proyecto_biblio_sena/biblioteca_Sena/bin/Debug/net8.0/Biblioteca_sena.deps.json
+/home/riwip5-018/Documents/1.DSC#/proyecto_biblio_sena/biblioteca_Sena/bin/Debug/net8.0/Biblioteca_sena.runtimeconfig.json
+/home/riwip5-018/Documents/1.DSC#/proyecto_biblio_sena/biblioteca_Sena/bin/Debug/net8.0/Biblioteca_sena.dll
+/home/riwip5-018/Documents/1.DSC#/proyecto_biblio_sena/biblioteca_Sena/bin/Debug/net8.0/Biblioteca_sena.pdb
+/home/riwip5-018/Documents/1.DSC#/proyecto_biblio_sena/biblioteca_Sena/obj/Debug/net8.0/Biblioteca_sena.GeneratedMSBuildEditorConfig.editorconfig
+/home/riwip5-018/Documents/1.DSC#/proyecto_biblio_sena/biblioteca_Sena/obj/Debug/net8.0/Biblioteca_sena.AssemblyInfoInputs.cache
+/home/riwip5-018/Documents/1.DSC#/proyecto_biblio_sena/biblioteca_Sena/obj/Debug/net8.0/Biblioteca_sena.AssemblyInfo.cs
+/home/riwip5-018/Documents/1.DSC#/proyecto_biblio_sena/biblioteca_Sena/obj/Debug/net8.0/Biblioteca_sena.csproj.CoreCompileInputs.cache
+/home/riwip5-018/Documents/1.DSC#/proyecto_biblio_sena/biblioteca_Sena/obj/Debug/net8.0/Biblioteca_sena.dll
+/home/riwip5-018/Documents/1.DSC#/proyecto_biblio_sena/biblioteca_Sena/obj/Debug/net8.0/refint/Biblioteca_sena.dll
+/home/riwip5-018/Documents/1.DSC#/proyecto_biblio_sena/biblioteca_Sena/obj/Debug/net8.0/Biblioteca_sena.pdb
+/home/riwip5-018/Documents/1.DSC#/proyecto_biblio_sena/biblioteca_Sena/obj/Debug/net8.0/Biblioteca_sena.genruntimeconfig.cache
+/home/riwip5-018/Documents/1.DSC#/proyecto_biblio_sena/biblioteca_Sena/obj/Debug/net8.0/ref/Biblioteca_sena.dll
