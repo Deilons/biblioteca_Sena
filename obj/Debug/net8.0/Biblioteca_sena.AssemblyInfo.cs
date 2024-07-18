@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Biblioteca_sena")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86290e3ef92c1c492e050e1f9db281567cb59f27")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fc0a9097bd1222eef42643d748a8b1ee8789bcc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Biblioteca_sena")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Biblioteca_sena")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -8,7 +8,7 @@ namespace biblioteca_Sena.Models;
 // public class Publication
 public class Publication
 {
-    // attributes
+    // properties
     public string Title { get; set; }
     
     public DateTime PublicationDate { get; set; }
