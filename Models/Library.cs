@@ -104,11 +104,25 @@ public class Library : Book
     {
         Console.WriteLine("Enter the title: ");
         string title = Console.ReadLine();
+        bool found = false;
+        // search for books by title
         foreach (Book book in Books)
         {
             if (book.Title.Equals(title, StringComparison.OrdinalIgnoreCase))
             {
                 book.ShowBook();
+                found = true;
+            }
+        }
+        // display message if no books found
+        if (!found)
+        {
+            Console.WriteLine($"No books found for the specified title: {title}");
+            Console.WriteLine("want to try again? (y/n)");
+            string answer = Console.ReadLine();
+            if (answer == "y")
+            {
+                ShowBooksByTitle();
             }
         }
     }
