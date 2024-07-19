@@ -8,10 +8,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        var library = new Library("Library Title", new DateTime(2022, 1, 1), "Author Name", 123456, "Genre", 29.99, "Description");
-        library.AddBook(new Book("The Great Gatsby", new DateTime(1925, 4, 10), "F. Scott Fitzgerald", 972, "Fiction", 1925, "hola"));
-        library.AddBook(new Book("To Kill a Mockingbird", new DateTime(1960, 7, 11), "Harper Lee", 520, "Fiction", 1960, "hello"));
-        library.AddBook(new Book("The Catcher in the Rye", new DateTime(1951, 7, 16), "J. D. Salinger", 310, "Fiction", 1951, "hola"));
+        // Initialize the library by adding some books
+        var library = new Library("Library Title", new DateOnly(2022, 1, 1), "Author Name", 123456, "Genre", 29.99, "Description");
+        library.AddBook(new Book("The Great Gatsby", new DateOnly(1925, 4, 10), "F. Scott Fitzgerald", 972, "Fiction", 1925, "hola"));
+        library.AddBook(new Book("To Kill a Mockingbird", new DateOnly(1960, 7, 11), "Harper Lee", 520, "Fiction", 1960, "hello"));
+        library.AddBook(new Book("The Catcher in the Rye", new DateOnly(1951, 7, 16), "J. D. Salinger", 310, "Fiction", 1951, "hola"));
 
         bool isRunning = true;
 
@@ -23,7 +24,8 @@ class Program
             Console.WriteLine("4. Show books by genre");
             Console.WriteLine("5. Show books by title");
             Console.WriteLine("6. Show books by publication date");
-            Console.WriteLine("9. Show books description");
+            Console.WriteLine("7. Show books description");
+            Console.WriteLine("8. Show all books");
             Console.WriteLine("10. Exit");
             Console.Write("Enter your choice: ");
             int choice = int.Parse(Console.ReadLine());
@@ -53,9 +55,9 @@ class Program
                     }
 
                     Console.WriteLine("Enter the publication date of the book: ");
-                    DateTime publicationDate = DateTime.Parse(Console.ReadLine());
+                    DateOnly publicationDate = DateOnly.Parse(Console.ReadLine());
                     //check if publication date is in the future or empty
-                    if (publicationDate > DateTime.Now)
+                    if (publicationDate > DateOnly.FromDateTime(DateTime.Now))
                     {
                         Console.WriteLine("Publication date cannot be in the future.");
                         break;
@@ -133,6 +135,13 @@ class Program
                     }else
                     {
                         Console.WriteLine("Book not found.");
+                    }
+                    break;
+                case 8:
+                    Console.Clear();
+                    foreach (Book book in library.Books)
+                    {
+                        book.ShowBook();
                     }
                     break;
                 

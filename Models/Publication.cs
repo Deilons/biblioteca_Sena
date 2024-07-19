@@ -11,10 +11,10 @@ public class Publication
     // properties
     public string Title { get; set; }
     
-    public DateTime PublicationDate { get; set; }
+    public DateOnly PublicationDate { get; set; }
 
     // methods
-    public Publication(string title, DateTime publicationDate)
+    public Publication(string title, DateOnly publicationDate)
     {
         Title = title;
         PublicationDate = publicationDate;

@@ -13,7 +13,7 @@ public class Library : Book
 
     // methods
 
-    public Library(string title, DateTime publicationDate, string author, int isbn, string genre, double price, string description) 
+    public Library(string title, DateOnly publicationDate, string author, int isbn, string genre, double price, string description) 
     : base(title, publicationDate, author, isbn, genre, price, description)
     {
         Title = title;

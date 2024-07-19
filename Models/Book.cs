@@ -21,7 +21,7 @@ public class Book : Publication
 
     // methods
 
-    public Book(string title, DateTime publicationDate, string author, int isbn, string genre, double price, string description) : base(title, publicationDate)
+    public Book(string title, DateOnly publicationDate, string author, int isbn, string genre, double price, string description) : base(title, publicationDate)
     {   
         title = Title;
         publicationDate = PublicationDate;
