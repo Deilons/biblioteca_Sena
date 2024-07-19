@@ -56,17 +56,22 @@ class Program
                 //remove book
                 case 2:
                     Console.Clear();
+
                     Console.WriteLine("Enter the title of the book to remove: ");
                     string titleToRemove = Console.ReadLine();
-                    //check if book exists
-                    if (library.Books.Any(book => book.Title == titleToRemove))
+                    // validate input
+                    if (string.IsNullOrWhiteSpace(titleToRemove))
                     {
-                        library.RemoveBook(library.Books.Find(book => book.Title == titleToRemove));
-                        Console.WriteLine("Book removed successfully.");
+                        Console.WriteLine("Title cannot be empty. Please try again.");
+                        Console.WriteLine("press enter to continue");
+                        Console.ReadLine();
+                        break;
                     }else
                     {
-                        Console.WriteLine("Book not found.");
+                        library.RemoveBook(titleToRemove);
                     }
+                    Console.WriteLine("press enter to continue");
+                    Console.ReadLine();
                     break;
 
                 //show books by author
@@ -112,6 +117,7 @@ class Program
                     Console.ReadLine();
                     break;
 
+                //show all books
                 case 8:
                     Console.Clear();
                     Console.WriteLine("All books:");
@@ -119,9 +125,20 @@ class Program
                     Console.WriteLine("Press any key to continue...");
                     Console.ReadKey();
                     break;
+
                 //exit
                 case 10:
+                Console.WriteLine("Are you sure you want to exit? (y/n) ");
+                string answer = Console.ReadLine();
+                if (answer == "y")
+                {   
+                    Console.WriteLine("Thank you for using the library. Goodbye!");
                     isRunning = false;
+                }
+                break;
+
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
         }

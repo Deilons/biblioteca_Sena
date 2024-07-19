@@ -134,15 +134,17 @@ public class Library : Book
         Books.Add(new Book(title, publicationDate, author, isbn, genre, price, description));
     }
 
-    public void RemoveBook(Book book)
+    public void RemoveBook(string titleToRemove)
     {
-        if (book != null)
+        Book bookToRemove = Books.FirstOrDefault(book => book.Title == titleToRemove);
+        if (bookToRemove != null)
         {
-            Books.Remove(book);
+            Books.Remove(bookToRemove);
+            Console.WriteLine("Book removed successfully.");
         }
         else
         {
-            Console.WriteLine("Book not removed.");
+            Console.WriteLine("Book not found.");
         }
     }
 
