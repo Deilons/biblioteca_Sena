@@ -174,6 +174,17 @@ class Program
                     Console.ReadLine();
                     break;
 
+                //show books description
+                case 7:
+                    Console.Clear();
+                    foreach (Book book in library.Books)
+                    {
+                        book.ShowDescription();
+                    }
+                    Console.WriteLine("press enter to continue");
+                    Console.ReadLine();
+                    break;
+
                 case 8:
                     Console.Clear();
                     Console.WriteLine("All books:");

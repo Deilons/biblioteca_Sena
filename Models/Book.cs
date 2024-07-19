@@ -58,7 +58,10 @@ public class Book : Publication
     }
 
     public void ShowDescription()
-    {
+    {   
+        Console.WriteLine("Title: ");
+        Console.WriteLine(Title);
+        Console.WriteLine("Description: ");
         Console.WriteLine(Description);
     }
 }
