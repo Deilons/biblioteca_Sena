@@ -154,14 +154,22 @@ class Program
                     library.ShowBooksByGenre();
                     break;
 
+                //show books by title
+                case 5:
+                    Console.Clear();
+                    library.ShowBooksByTitle();
+                    break;
+
                 case 8:
                     Console.Clear();
-                    foreach (Book book in library.Books)
-                    {
-                        book.ShowBook();
-                    }
+                    Console.WriteLine("All books:");
+                    library.ShowAllBooks();
                     Console.WriteLine("Press any key to continue...");
                     Console.ReadKey();
+                    break;
+                //exit
+                case 10:
+                    isRunning = false;
                     break;
             }
         }
