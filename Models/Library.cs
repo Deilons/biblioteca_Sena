@@ -81,7 +81,7 @@ public class Library : Book
             {
                 book.ShowBook();
                 found = true;
-                
+
             }
             else if (!found)
             {
@@ -93,7 +93,7 @@ public class Library : Book
                     ShowBooksByGenre();
                 }
                 else
-                {   
+                {
                     break;
                 }
             }
@@ -101,7 +101,7 @@ public class Library : Book
     }
 
     public void ShowBooksByTitle()
-    {   
+    {
         Console.WriteLine("Enter the title: ");
         string title = Console.ReadLine();
         foreach (Book book in Books)
@@ -113,17 +113,34 @@ public class Library : Book
         }
     }
 
+
+
     public void ShowBooksByPublicationDate()
+{
+    Console.WriteLine("Enter the publication date: ");
+    DateOnly publicationDate = DateOnly.Parse(Console.ReadLine());
+    bool found = false;
+    // search for books by publication date
+    foreach (Book book in Books)
     {
-        foreach (Book book in Books)
+        if (book.PublicationDate.Equals(publicationDate))
         {
-            if (book.PublicationDate.Year == PublicationDate.Year)
-            {
-                book.ShowBook();
-                
-            }
+            book.ShowBook();
+            found = true;
         }
     }
+    // display message if no books found
+    if (!found)
+    {
+        Console.WriteLine($"No books found for the specified publication date: {publicationDate}");
+        Console.WriteLine("want to try again? (y/n)");
+        string answer = Console.ReadLine();
+        if (answer == "y")
+        {
+            ShowBooksByPublicationDate();
+        }
+    }
+}
 
     public void ShowAllBooks()
     {

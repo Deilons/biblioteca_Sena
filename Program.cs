@@ -166,6 +166,14 @@ class Program
                     Console.ReadLine();
                     break;
 
+                //show books by publication date
+                case 6:
+                    Console.Clear();
+                    library.ShowBooksByPublicationDate();
+                    Console.WriteLine("press enter to continue");
+                    Console.ReadLine();
+                    break;
+
                 case 8:
                     Console.Clear();
                     Console.WriteLine("All books:");
