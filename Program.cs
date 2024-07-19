@@ -20,6 +20,8 @@ class Program
 
         while (isRunning)
         {   
+            Console.Clear();
+            Console.WriteLine("Welcome to the library!");
             Console.WriteLine("1. Add book");
             Console.WriteLine("2. Remove book");
             Console.WriteLine("3. Show books by author");
@@ -158,6 +160,8 @@ class Program
                     {
                         book.ShowBook();
                     }
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
                     break;
             }
         }
