@@ -11,6 +11,8 @@ class Program
         // Initialize the library by adding some books
         var library = new Library("Library Title", new DateOnly(2022, 1, 1), "Author Name", 123456, "Genre", 29.99, "Description");
         library.AddBook(new Book("The Great Gatsby", new DateOnly(1925, 4, 10), "F. Scott Fitzgerald", 972, "Fiction", 1925, "hola"));
+        library.AddBook(new Book("The Great Gatsby", new DateOnly(1925, 4, 10), "F. Scott Fitzgerald", 972, "Fiction", 1925, "hola"));
+
         library.AddBook(new Book("To Kill a Mockingbird", new DateOnly(1960, 7, 11), "Harper Lee", 520, "Fiction", 1960, "hello"));
         library.AddBook(new Book("The Catcher in the Rye", new DateOnly(1951, 7, 16), "J. D. Salinger", 310, "Fiction", 1951, "hola"));
 
@@ -137,6 +139,13 @@ class Program
                         Console.WriteLine("Book not found.");
                     }
                     break;
+
+                //show books by author
+                case 3:
+                    Console.Clear();
+                    library.ShowBooksByAuthor();
+                    break;
+
                 case 8:
                     Console.Clear();
                     foreach (Book book in library.Books)
@@ -144,7 +153,6 @@ class Program
                         book.ShowBook();
                     }
                     break;
-                
             }
         }
     }

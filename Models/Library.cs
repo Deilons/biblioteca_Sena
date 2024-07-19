@@ -13,7 +13,7 @@ public class Library : Book
 
     // methods
 
-    public Library(string title, DateOnly publicationDate, string author, int isbn, string genre, double price, string description) 
+    public Library(string title, DateOnly publicationDate, string author, int isbn, string genre, double price, string description)
     : base(title, publicationDate, author, isbn, genre, price, description)
     {
         Title = title;
@@ -51,16 +51,22 @@ public class Library : Book
     }
 
     public void ShowBooksByAuthor()
-    {
+    {   
+        Console.WriteLine("Enter the author name: ");
+        string author = Console.ReadLine();
+        bool found = false;
         foreach (Book book in Books)
         {
-            if (book.Author == Author)
+            if (book.Author.Equals(author, StringComparison.OrdinalIgnoreCase))
             {
                 book.ShowBook();
+                found = true;
             }
-            else{
-                Console.WriteLine("Book not found.");
-            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine($"No books found for the specified author: {author}");
         }
     }
 
