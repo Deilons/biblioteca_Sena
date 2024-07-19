@@ -10,11 +10,13 @@ class Program
     {
         // Initialize the library by adding some books
         var library = new Library("Library Title", new DateOnly(2022, 1, 1), "Author Name", 123456, "Genre", 29.99, "Description");
-        library.AddBook(new Book("The Great Gatsby", new DateOnly(1925, 4, 10), "F. Scott Fitzgerald", 972, "Fiction", 1925, "hola"));
-        library.AddBook(new Book("The Great Gatsby", new DateOnly(1925, 4, 10), "F. Scott Fitzgerald", 972, "Fiction", 1925, "hola"));
-        library.AddBook(new Book("a", new DateOnly(2000, 12, 12), "a",1, "a", 12, "a"));
-        library.AddBook(new Book("To Kill a Mockingbird", new DateOnly(1960, 7, 11), "Harper Lee", 520, "Fiction", 1960, "hello"));
-        library.AddBook(new Book("The Catcher in the Rye", new DateOnly(1951, 7, 16), "J. D. Salinger", 310, "Fiction", 1951, "hola"));
+
+        
+        library.Books.Add(new Book("The Great Gatsby", new DateOnly(1925, 4, 10), "F. Scott Fitzgerald", 972, "Fiction", 1925, "hola"));
+        library.Books.Add(new Book("The Great Gatsby", new DateOnly(1925, 4, 10), "F. Scott Fitzgerald", 972, "Fiction", 1925, "hola"));
+        library.Books.Add(new Book("a", new DateOnly(2000, 12, 12), "a",1, "a", 12, "a"));
+        library.Books.Add(new Book("To Kill a Mockingbird", new DateOnly(1960, 7, 11), "Harper Lee", 520, "Fiction", 1960, "hello"));
+        library.Books.Add(new Book("The Catcher in the Rye", new DateOnly(1951, 7, 16), "J. D. Salinger", 310, "Fiction", 1951, "hola"));
 
         bool isRunning = true;
 
@@ -43,87 +45,12 @@ class Program
             {   
                 //add book
                 case 1:
-                Console.Clear();
+                    Console.Clear();
 
-                    Console.WriteLine("Enter the title of the book: ");
-                    string title = Console.ReadLine();
-                    //check if book already exists or title is empty
-                    if (library.Books.Any(book => book.Title == title))
-                    {
-                        Console.WriteLine("Book already exists.");
-                        break;
-                    }else if (string.IsNullOrEmpty(title))
-                    {
-                        Console.WriteLine("Title cannot be empty.");
-                        break;
-                    }
-
-                    Console.WriteLine("Enter the publication date of the book: ");
-                    DateOnly publicationDate = DateOnly.Parse(Console.ReadLine());
-                    //check if publication date is in the future or empty
-                    if (publicationDate > DateOnly.FromDateTime(DateTime.Now))
-                    {
-                        Console.WriteLine("Publication date cannot be in the future.");
-                        break;
-                    }else if (string.IsNullOrEmpty(title))
-                    {
-                        Console.WriteLine("Publication date cannot be empty.");
-                        break;
-                    }
-
-                    Console.WriteLine("Enter the author of the book: ");
-                    string author = Console.ReadLine();
-                    //check if author is empty
-                    if (string.IsNullOrEmpty(author))
-                    {
-                        Console.WriteLine("Author cannot be empty.");
-                        break;
-                    }
-
-                    Console.WriteLine("Enter the ISBN of the book: ");
-                    int isbn = int.Parse(Console.ReadLine());
-                    //check if ISBN is negative or empty
-                    if (string.IsNullOrEmpty(isbn.ToString()))
-                    {
-                        Console.WriteLine("ISBN cannot be empty.");
-                        break;
-                    }else if (isbn < 0)
-                    {
-                        Console.WriteLine("ISBN cannot be negative.");
-                        break;
-                    }
-                    Console.WriteLine("Enter the genre of the book: ");
-                    string genre = Console.ReadLine();
-                    //check if genre is empty 
-                    if (string.IsNullOrEmpty(genre))
-                    {
-                        Console.WriteLine("Genre cannot be empty.");
-                        break;
-                    }
-                    Console.WriteLine("Enter the price of the book: ");
-                    double price = double.Parse(Console.ReadLine());
-                    //check if price is negative or empty
-                    if (string.IsNullOrEmpty(price.ToString()))
-                    {
-                        Console.WriteLine("Price cannot be empty.");
-                        break;
-                    }else if (price < 0)
-                    {
-                        Console.WriteLine("Price cannot be negative.");
-                        break;
-                    }
-
-                    Console.WriteLine("Enter the description of the book: ");
-                    string description = Console.ReadLine();
-                    //check if description is empty
-                    if (string.IsNullOrEmpty(description))
-                    {
-                        Console.WriteLine("Description cannot be empty.");
-                        break;
-                    }
-                    //add the book
-                    library.AddBook(new Book(title, publicationDate, author, isbn, genre, price, description));
+                    library.AddBook();                        
                     Console.WriteLine("Book added successfully.");
+                    Console.WriteLine("press enter to continue");
+                    Console.ReadLine();
                     break;
 
                 //remove book
