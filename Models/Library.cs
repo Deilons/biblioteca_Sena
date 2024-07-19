@@ -51,7 +51,7 @@ public class Library : Book
     }
 
     public void ShowBooksByAuthor()
-    {   
+    {
         Console.WriteLine("Enter the author name: ");
         string author = Console.ReadLine();
         bool found = false;
@@ -72,13 +72,35 @@ public class Library : Book
 
     public void ShowBooksByGenre()
     {
+        bool found = false;
+        Console.WriteLine("Enter the genre: ");
+        string genre = Console.ReadLine();
         foreach (Book book in Books)
         {
-            if (book.Genre == Genre)
+            if (book.Genre.Equals(genre, StringComparison.OrdinalIgnoreCase))
             {
                 book.ShowBook();
+                found = true;
             }
+            else if (!found)
+            {
+                Console.WriteLine($"No books found for the specified genre: {genre}");
+                Console.WriteLine("want to try again? (y/n)");
+                string answer = Console.ReadLine();
+                if (answer == "y")
+                {
+                    ShowBooksByGenre();
+                }
+                else
+                {   
+                    break;
+                }
+            }
+            
+            
         }
+
+
     }
 
     public void ShowBooksByTitle()

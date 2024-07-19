@@ -19,7 +19,7 @@ class Program
         bool isRunning = true;
 
         while (isRunning)
-        {
+        {   
             Console.WriteLine("1. Add book");
             Console.WriteLine("2. Remove book");
             Console.WriteLine("3. Show books by author");
@@ -144,6 +144,12 @@ class Program
                 case 3:
                     Console.Clear();
                     library.ShowBooksByAuthor();
+                    break;
+
+                //show books by genre
+                case 4:
+                    Console.Clear();
+                    library.ShowBooksByGenre();
                     break;
 
                 case 8:
