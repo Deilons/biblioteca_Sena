@@ -146,12 +146,16 @@ class Program
                 case 3:
                     Console.Clear();
                     library.ShowBooksByAuthor();
+                    Console.WriteLine("press enter to continue");
+                    Console.ReadLine();
                     break;
 
                 //show books by genre
                 case 4:
                     Console.Clear();
                     library.ShowBooksByGenre();
+                    Console.WriteLine("press enter to continue");
+                    Console.ReadLine();
                     break;
 
                 //show books by title
