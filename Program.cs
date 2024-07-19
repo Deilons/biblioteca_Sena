@@ -12,7 +12,7 @@ class Program
         var library = new Library("Library Title", new DateOnly(2022, 1, 1), "Author Name", 123456, "Genre", 29.99, "Description");
         library.AddBook(new Book("The Great Gatsby", new DateOnly(1925, 4, 10), "F. Scott Fitzgerald", 972, "Fiction", 1925, "hola"));
         library.AddBook(new Book("The Great Gatsby", new DateOnly(1925, 4, 10), "F. Scott Fitzgerald", 972, "Fiction", 1925, "hola"));
-
+        library.AddBook(new Book("a", new DateOnly(2000, 12, 12), "a",1, "a", 12, "a"));
         library.AddBook(new Book("To Kill a Mockingbird", new DateOnly(1960, 7, 11), "Harper Lee", 520, "Fiction", 1960, "hello"));
         library.AddBook(new Book("The Catcher in the Rye", new DateOnly(1951, 7, 16), "J. D. Salinger", 310, "Fiction", 1951, "hola"));
 
@@ -158,6 +158,8 @@ class Program
                 case 5:
                     Console.Clear();
                     library.ShowBooksByTitle();
+                    Console.WriteLine("press enter to continue");
+                    Console.ReadLine();
                     break;
 
                 case 8:
