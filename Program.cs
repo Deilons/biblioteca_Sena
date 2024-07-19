@@ -23,12 +23,16 @@ class Program
             Console.WriteLine("4. Show books by genre");
             Console.WriteLine("5. Show books by title");
             Console.WriteLine("6. Show books by publication date");
-            Console.WriteLine("7. Show books by recent publication date");
-            Console.WriteLine("8. Show books by price");
-            Console.WriteLine("9. Show books by description");
+            Console.WriteLine("9. Show books description");
             Console.WriteLine("10. Exit");
             Console.Write("Enter your choice: ");
             int choice = int.Parse(Console.ReadLine());
+            // check if choice is valid
+            if (choice < 1 || choice > 10)
+            {
+                Console.WriteLine("Invalid choice. Please try again.");
+                continue;
+            }
             switch (choice)
             {   
                 //add book
@@ -114,7 +118,22 @@ class Program
                     //add the book
                     library.AddBook(new Book(title, publicationDate, author, isbn, genre, price, description));
                     Console.WriteLine("Book added successfully.");
+                    break;
 
+                //remove book
+                case 2:
+                    Console.Clear();
+                    Console.WriteLine("Enter the title of the book to remove: ");
+                    string titleToRemove = Console.ReadLine();
+                    //check if book exists
+                    if (library.Books.Any(book => book.Title == titleToRemove))
+                    {
+                        library.RemoveBook(library.Books.Find(book => book.Title == titleToRemove));
+                        Console.WriteLine("Book removed successfully.");
+                    }else
+                    {
+                        Console.WriteLine("Book not found.");
+                    }
                     break;
                 
             }
