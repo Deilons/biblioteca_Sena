@@ -32,9 +32,17 @@ public class Book : Publication
         Description = description;
     }
 
-    public void ShowDescription()
+    public void ShowBook()
     {
-        Console.WriteLine(Description);
+        Console.WriteLine($@"
+        Title: {Title} 
+        Year: {PublicationDate} 
+        Author: {Author} 
+        ISBN: {ISBN} 
+        Genre: {Genre} 
+        Price: {Price} 
+        Description: {Description}"
+        );
     }
 
     public bool IsRecent()
@@ -47,5 +55,10 @@ public class Book : Publication
         {
             return false;
         }
+    }
+
+    public void ShowDescription()
+    {
+        Console.WriteLine(Description);
     }
 }

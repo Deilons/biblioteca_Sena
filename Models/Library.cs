@@ -23,15 +23,31 @@ public class Library : Book
         Genre = genre;
         Price = price;
         Description = description;
+
+        Books = new List<Book>();
     }
     public void AddBook(Book book)
     {
-        Books.Add(book);
+        if (book != null)
+        {
+            Books.Add(book);
+        }
+        else
+        {
+            Console.WriteLine("Book not added.");
+        }
     }
 
     public void RemoveBook(Book book)
     {
-        Books.Remove(book);
+        if (book != null)
+        {
+            Books.Remove(book);
+        }
+        else
+        {
+            Console.WriteLine("Book not removed.");
+        }
     }
 
     public void ShowBooksByAuthor()
@@ -40,7 +56,10 @@ public class Library : Book
         {
             if (book.Author == Author)
             {
-                book.ShowDescription();
+                book.ShowBook();
+            }
+            else{
+                Console.WriteLine("Book not found.");
             }
         }
     }
@@ -51,7 +70,7 @@ public class Library : Book
         {
             if (book.Genre == Genre)
             {
-                book.ShowDescription();
+                book.ShowBook();
             }
         }
     }
@@ -62,7 +81,7 @@ public class Library : Book
         {
             if (book.Title == Title)
             {
-                book.ShowDescription();
+                book.ShowBook();
             }
         }
     }
@@ -73,7 +92,7 @@ public class Library : Book
         {
             if (book.PublicationDate.Year == PublicationDate.Year)
             {
-                book.ShowDescription();
+                book.ShowBook();
             }
         }
     }
