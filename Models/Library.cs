@@ -12,8 +12,7 @@ public class Library : Book
     public List<Book>? Books { get; set; }
 
     // methods
-
-    public Library(string title, DateTime publicationDate, string author, int isbn, string genre, double price, string description) 
+    public Library(string title, DateOnly publicationDate, string author, int isbn, string genre, double price, string description)
     : base(title, publicationDate, author, isbn, genre, price, description)
     {
         Title = title;
@@ -25,58 +24,242 @@ public class Library : Book
         Description = description;
 
         Books = new List<Book>();
+
+        Books = new List<Book>();
     }
-    public void AddBook(Book book)
+    public void AddBook()
     {
-        Books?.Add(book);
+        string title;
+        DateOnly publicationDate;
+        string author;
+        int isbn;
+        string genre;
+        double price;
+        string description;
+
+        Console.WriteLine("Enter the title of the book: ");
+        while (true)
+        {
+            title = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                Console.WriteLine("Title cannot be empty. Please try again.");
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        Console.WriteLine("Enter the publication date of the book (YYYY-MM-DD): ");
+        while (true)
+        {
+            if (DateOnly.TryParse(Console.ReadLine(), out publicationDate))
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid publication date format. Please enter date in YYYY-MM-DD format. Please try again.");
+            }
+        }
+
+        Console.WriteLine("Enter the author of the book: ");
+        while (true)
+        {
+            author = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(author))
+            {
+                Console.WriteLine("Author cannot be empty. Please try again.");
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        Console.WriteLine("Enter the ISBN of the book: ");
+        while (true)
+        {
+            if (int.TryParse(Console.ReadLine(), out isbn))
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid ISBN. Please enter a valid integer. Please try again.");
+            }
+        }
+
+        Console.WriteLine("Enter the genre of the book: ");
+        while (true)
+        {
+            genre = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(genre))
+            {
+                Console.WriteLine("Genre cannot be empty. Please try again.");
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        Console.WriteLine("Enter the price of the book: ");
+        while (true)
+        {
+            if (double.TryParse(Console.ReadLine(), out price))
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid price. Please enter a valid number. Please try again.");
+            }
+        }
+
+        Console.WriteLine("Enter the description of the book: ");
+        while (true)
+        {
+            description = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                Console.WriteLine("Description cannot be empty. Please try again.");
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        Books.Add(new Book(title, publicationDate, author, isbn, genre, price, description));
     }
 
-    public void RemoveBook(Book book)
+    public void RemoveBook(string titleToRemove)
     {
-        Books?.Remove(book);
+        Book bookToRemove = Books.FirstOrDefault(book => book.Title == titleToRemove);
+        if (bookToRemove != null)
+        {
+            Books.Remove(bookToRemove);
+            Console.WriteLine("Book removed successfully.");
+        }
+        else
+        {
+            Console.WriteLine("Book not found.");
+        }
     }
 
     public void ShowBooksByAuthor()
     {
-        foreach (Book book in Books?.ToList() ?? new List<Book>())
+        Console.WriteLine("Enter the author name: ");
+        string author = Console.ReadLine();
+        bool found = false;
+        foreach (Book book in Books)
         {
-            if (book.Author == Author)
+            if (book.Author.Equals(author, StringComparison.OrdinalIgnoreCase))
             {
-                book.ShowDescription();
+                book.ShowBook();
+                found = true;
             }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine($"No books found for the specified author: {author}");
         }
     }
 
     public void ShowBooksByGenre()
     {
-        foreach (Book book in Books?.ToList() ?? new List<Book>())
+        bool found = false;
+        Console.WriteLine("Enter the genre: ");
+        string genre = Console.ReadLine();
+        foreach (Book book in Books)
         {
-            if (book.Genre == Genre)
+            if (book.Genre.Equals(genre, StringComparison.OrdinalIgnoreCase))
             {
-                book.ShowDescription();
+                book.ShowBook();
+                found = true;
+
+            }
+            else if (!found)
+            {
+                Console.WriteLine($"No books found for the specified genre: {genre}");
+                Console.WriteLine("want to try again? (y/n)");
+                string answer = Console.ReadLine();
+                if (answer == "y")
+                {
+                    ShowBooksByGenre();
+                }
+                else
+                {
+                    break;
+                }
             }
         }
     }
 
     public void ShowBooksByTitle()
     {
-        foreach (Book book in Books?.ToList() ?? new List<Book>())
+        Console.WriteLine("Enter the title: ");
+        string title = Console.ReadLine();
+        bool found = false;
+        // search for books by title
+        foreach (Book book in Books)
         {
-            if (book.Title == Title)
+            if (book.Title.Equals(title, StringComparison.OrdinalIgnoreCase))
             {
-                book.ShowDescription();
+                book.ShowBook();
+                found = true;
+            }
+        }
+        // display message if no books found
+        if (!found)
+        {
+            Console.WriteLine($"No books found for the specified title: {title}");
+            Console.WriteLine("want to try again? (y/n)");
+            string answer = Console.ReadLine();
+            if (answer == "y")
+            {
+                ShowBooksByTitle();
             }
         }
     }
 
+
+
     public void ShowBooksByPublicationDate()
     {
-        foreach (Book book in Books?.ToList() ?? new List<Book>())
+        Console.WriteLine("Enter the publication date: ");
+        DateOnly publicationDate = DateOnly.Parse(Console.ReadLine());
+        bool found = false;
+        // search for books by publication date
+        foreach (Book book in Books)
         {
-            if (book.PublicationDate.Year == PublicationDate.Year)
+            if (book.PublicationDate.Equals(publicationDate))
             {
-                book.ShowDescription();
+                book.ShowBook();
+                found = true;
             }
+        }
+        // display message if no books found
+        if (!found)
+        {
+            Console.WriteLine($"No books found for the specified publication date: {publicationDate}");
+            Console.WriteLine("want to try again? (y/n)");
+            string answer = Console.ReadLine();
+            if (answer == "y")
+            {
+                ShowBooksByPublicationDate();
+            }
+        }
+    }
+
+    public void ShowAllBooks()
+    {
+        foreach (Book book in Books)
+        {
+            book.ShowBook();
         }
     }
 }

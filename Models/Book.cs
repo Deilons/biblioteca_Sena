@@ -21,7 +21,7 @@ public class Book : Publication
 
     // methods
 
-    public Book(string title, DateTime publicationDate, string author, int isbn, string genre, double price, string description) : base(title, publicationDate)
+    public Book(string title, DateOnly publicationDate, string author, int isbn, string genre, double price, string description) : base(title, publicationDate)
     {   
         title = Title;
         publicationDate = PublicationDate;
@@ -32,9 +32,17 @@ public class Book : Publication
         Description = description;
     }
 
-    public void ShowDescription()
+    public void ShowBook()
     {
-        Console.WriteLine(Description);
+        Console.WriteLine($@"
+        Title: {Title} 
+        Year: {PublicationDate} 
+        Author: {Author} 
+        ISBN: {ISBN} 
+        Genre: {Genre} 
+        Price: {Price} 
+        Description: {Description}"
+        );
     }
 
     public bool IsRecent()
@@ -47,5 +55,13 @@ public class Book : Publication
         {
             return false;
         }
+    }
+
+    public void ShowDescription()
+    {   
+        Console.WriteLine("Title: ");
+        Console.WriteLine(Title);
+        Console.WriteLine("Description: ");
+        Console.WriteLine(Description);
     }
 }
