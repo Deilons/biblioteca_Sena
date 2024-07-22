@@ -9,7 +9,7 @@ namespace biblioteca_Sena.Models;
 public class Library : Book
 {
     // attributes
-    public List<Book> Books { get; set; }
+    public List<Book>? Books { get; set; }
 
     // methods
     public Library(string title, DateOnly publicationDate, string author, int isbn, string genre, double price, string description)
@@ -22,6 +22,8 @@ public class Library : Book
         Genre = genre;
         Price = price;
         Description = description;
+
+        Books = new List<Book>();
 
         Books = new List<Book>();
     }
