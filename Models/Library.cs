@@ -12,7 +12,6 @@ public class Library : Book
     public List<Book> Books { get; set; }
 
     // methods
-
     public Library(string title, DateOnly publicationDate, string author, int isbn, string genre, double price, string description)
     : base(title, publicationDate, author, isbn, genre, price, description)
     {
